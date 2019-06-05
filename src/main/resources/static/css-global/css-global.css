@@ -1,0 +1,10 @@
+.megamenu-li {
+  position: static;
+}
+.megamenu {
+  position: absolute;
+  max-width: 100%;
+  left: 0;
+  right: 0;
+  padding: 15px;
+}
