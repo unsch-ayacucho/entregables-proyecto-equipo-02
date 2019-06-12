@@ -2,7 +2,6 @@ package app.model;
 
 import java.io.Serializable;
 
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -28,7 +27,6 @@ public class Detalle_Pedido implements Serializable{
 	private Pedido pedido;
 	private Producto producto;
 	
-	
 	@Id
 	@Column(name="id_detalle_pedido", unique = true, nullable = false)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,21 +36,23 @@ public class Detalle_Pedido implements Serializable{
 	public void setId_detalle_pedido(int id_detalle_pedido) {
 		this.id_detalle_pedido = id_detalle_pedido;
 	}
-	@Column(name="nombre",length=5)
+	
+	@Column(name="cantidad",length=50)
 	public int getCantidad() {
 		return cantidad;
 	}
 	public void setCantidad(int cantidad) {
 		this.cantidad = cantidad;
 	}
-	@Column(name="nombre")
+	
+	@Column(name="fecha")
 	public String getFecha() {
 		return fecha;
 	}
 	public void setFecha(String fecha) {
 		this.fecha = fecha;
 	}
-
+	
 	@JsonIgnoreProperties({"detalle_pedido","hibernateLazyInitializer","handler"})
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name = "id_pedido")
@@ -63,7 +63,6 @@ public class Detalle_Pedido implements Serializable{
 		this.pedido = pedido;
 	}
 	
-
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JsonIgnoreProperties(value={"detalle_pedido","hibernateLazyInitializer","handler"}, allowSetters=true)
 	@JoinColumn(name = "id_producto")
@@ -75,5 +74,4 @@ public class Detalle_Pedido implements Serializable{
 	}
 	
 	
-
 }

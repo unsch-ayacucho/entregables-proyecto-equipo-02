@@ -19,21 +19,21 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table(name="pedido")
-public class Pedido implements Serializable{
+@Table(name = "pedido")
+public class Pedido implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	private int id_pedido;
-	
-	private Cliente cliente;
-	
-	private List<Detalle_Pedido> detalle_pedido;
 
+	private Cliente cliente;
+
+	private List<Detalle_Pedido> detalle_pedido;
+	
 	public Pedido() {
 		this.detalle_pedido = new ArrayList<>();
 	}
-	
+
 	@Id
 	@Column(name="id_pedido",unique = true, nullable = false)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -45,7 +45,6 @@ public class Pedido implements Serializable{
 		this.id_pedido = id_pedido;
 	}
 
-	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JsonIgnoreProperties(value={"pedido","hibernateLazyInitializer","handler"}, allowSetters=true)
 	@JoinColumn(name = "id_cliente")
@@ -66,9 +65,7 @@ public class Pedido implements Serializable{
 	public void setDetalle_pedido(List<Detalle_Pedido> detalle_pedido) {
 		this.detalle_pedido = detalle_pedido;
 	}
+	
+	
 
-	
-
-	
-	
 }

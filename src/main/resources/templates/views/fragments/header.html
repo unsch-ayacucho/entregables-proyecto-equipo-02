@@ -8,22 +8,22 @@
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
 
 <!-- Font awesome 5 -->
-<link href="fonts/fontawesome/css/fontawesome-all.min.css"
+<link th:href="@{fonts/fontawesome/css/fontawesome-all.min.css}"
 	type="text/css" rel="stylesheet">
 
 <!-- plugin: fancybox  -->
-<link href="plugins/fancybox/fancybox.min.css" type="text/css"
+<link th:href="@{plugins/fancybox/fancybox.min.css}" type="text/css"
 	rel="stylesheet">
 
 <!-- plugin: owl carousel  -->
-<link href="plugins/owlcarousel/assets/owl.carousel.min.css"
+<link th:href="@{plugins/owlcarousel/assets/owl.carousel.min.css}"
 	rel="stylesheet">
-<link href="plugins/owlcarousel/assets/owl.theme.default.css"
+<link th:href="@{plugins/owlcarousel/assets/owl.theme.default.css}"
 	rel="stylesheet">
 
 <!-- custom style -->
-<link href="css/ui.css" rel="stylesheet" type="text/css" />
-<link href="css/responsive.css" rel="stylesheet"
+<link th:href="@{css/ui.css}" rel="stylesheet" type="text/css" />
+<link th:href="@{css/responsive.css}" rel="stylesheet"
 	media="only screen and (max-width: 1200px)" />
 
 <link th:href="@{css-global/css-global.css}" rel="stylesheet"
@@ -34,7 +34,7 @@
 <title>Index</title>
 </head>
 <body>
-	<header class="section-header">
+	<header class="section-header" id="header" th:fragment="header">
 		<nav
 			class="navbar navbar-top navbar-expand-lg navbar-dark bg-secondary">
 			<div class="container">
@@ -183,172 +183,6 @@
 		<!-- header-main .// -->
 	</header>
 	<!-- section-header.// -->
-
-	<!-- ========================= SECTION MAIN ========================= -->
-	<section class="section-main bg padding-top-sm">
-		<div class="container">
-
-			<div class="row row-sm">
-				<aside class="col-md-3">
-					<div class="card">
-						<header class="card-header bg-secondary white">
-							<i class="icon-menu"></i> Categories
-						</header>
-						<ul class="menu-category">
-							<li class="has-submenu"><a href="#">Mueble<i
-									class="icon-arrow-right pull-right"></i></a>
-								<ul class="submenu">
-									<li><a>Sala</a></li>
-									<li><a>Sala TV</a></li>
-									<li><a>Oficina</a></li>
-								</ul></li>
-							<li class="has-submenu"><a href="#">Dormitorio<i
-									class="icon-arrow-right pull-right"></i></a>
-								<ul class="submenu">
-									<li><a href="#">Camas Box Tarima</a></li>
-									<li><a href="#">Camas Funcionales</a></li>
-									<li><a href="#">Juegos de Dormitorio</a></li>
-								</ul></li>
-						</ul>
-					</div>
-					<!-- card.// -->
-				</aside>
-				<!-- col.// -->
-				<div class="col-md-6">
-					<div class="card">
-						<div class="card-body">
-							<!-- ================= main slide ================= -->
-							<div class="owl-init slider-main owl-carousel" data-items="1"
-								data-nav="true" data-dots="false">
-								<div class="item-slide">
-									<img th:src="@{/images/banners/slide1.jpg}">
-								</div>
-								<div class="item-slide">
-									<img th:src="@{/images/banners/slide2.jpg}">
-								</div>
-								<div class="item-slide">
-									<img th:src="@{images/banners/slide3.jpg}">
-								</div>
-							</div>
-							<!-- ============== main slidesow .end // ============= -->
-						</div>
-						<!-- card-body .// -->
-					</div>
-					<!-- card.// -->
-				</div>
-				<!-- col.// -->
-				<aside class="col-md-3">
-
-					<div class="card bg-white h-100 d-flex flex-column">
-						<div class="p-3 flex-grow-1">
-							<p>Some item group</p>
-							<a href="#" class="btn btn-sm btn-primary round">View more</a>
-						</div>
-						<div class="p-3 bg flex-grow-1">
-							<p>Some item group</p>
-							<a href="#" class="btn btn-sm btn-primary round">View more</a>
-						</div>
-						<div class="p-3 flex-grow-1">
-							<p>Some item group</p>
-							<a href="#" class="btn btn-sm btn-primary round">View more</a>
-						</div>
-					</div>
-
-				</aside>
-			</div>
-		</div>
-		<!-- container .//  -->
-	</section>
-	<!-- ========================= SECTION MAIN END// ========================= -->
-
-	<!-- ========================= SECTION CONTENT ========================= -->
-	<section class="section-content padding-y bg">
-		<div class="container">
-
-			<div class="card mb-3">
-				<div class="card-body">
-
-					<header class="section-heading">
-						<h3 class="title-section">Main section is here</h3>
-					</header>
-
-					<article>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-							sed do eiusmod tempor incididunt ut labore et dolore magna
-							aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-							ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-							aute irure dolor in reprehenderit in voluptate velit esse cillum
-							dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-							cupidatat non proident, sunt in culpa qui officia deserunt mollit
-							anim id est laborum.</p>
-						<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco
-							laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-							dolor in reprehenderit in voluptate velit esse cillum dolore eu
-							fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-							proident, sunt in culpa qui officia deserunt mollit anim id est
-							laborum.</p>
-						<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco
-							laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-							dolor in reprehenderit in voluptate velit esse cillum dolore eu
-							fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-							proident, sunt in culpa qui officia deserunt mollit anim id est
-							laborum.</p>
-
-
-					</article>
-				</div>
-				<!-- card-body .// -->
-			</div>
-			<!-- card.// -->
-
-			<div class="card">
-				<div class="card-body">
-
-					<article>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-							sed do eiusmod tempor incididunt ut labore et dolore magna
-							aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-							ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-							aute irure dolor in reprehenderit in voluptate velit esse cillum
-							dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-							cupidatat non proident, sunt in culpa qui officia deserunt mollit
-							anim id est laborum.</p>
-						<br> <br> <br> <br>
-					</article>
-				</div>
-				<!-- card-body .// -->
-			</div>
-			<!-- card.// -->
-
-		</div>
-		<!-- container .//  -->
-	</section>
-	<!-- ========================= SECTION CONTENT END// ========================= -->
-
-	<!-- ========================= FOOTER ========================= -->
-	<footer class="section-footer">
-		<div class="container">
-			<section class="footer-bottom row">
-				<div class="col-sm-6">
-					<p>
-						Made with <3 <br> by Vosidiy M.
-					</p>
-				</div>
-				<div class="col-sm-6">
-					<p class="text-sm-right">
-						Copyright &copy 2018 <br> <a
-							href="http://bootstrap-ecommerce.com">Bootstrap-ecommerce UI
-							kit</a>
-					</p>
-				</div>
-			</section>
-			<!-- //footer-top -->
-		</div>
-		<!-- //container -->
-	</footer>
-	<!-- ========================= FOOTER END // ========================= -->
-
-
 
 
 	<!-- jQuery -->

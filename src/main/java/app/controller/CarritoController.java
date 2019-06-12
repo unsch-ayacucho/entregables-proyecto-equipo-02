@@ -8,12 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping(value = "/carrito")
 public class CarritoController {
-	@RequestMapping(value = "/1", method = RequestMethod.GET)
-	public ModelAndView showBandejaEntrada() {
-		ModelAndView model = new ModelAndView("carrito");
-		
-		return model;
-	}
+
 
 
 }

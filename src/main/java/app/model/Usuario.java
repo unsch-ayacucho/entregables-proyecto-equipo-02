@@ -1,7 +1,6 @@
 package app.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Entity
 @Table(name="usuario")
 public class Usuario implements Serializable{
-
+	
 	private static final long serialVersionUID = 1L;
 	
 	private int id_usuario;
@@ -26,7 +25,7 @@ public class Usuario implements Serializable{
 	private String password;
 	
 	private Cliente cliente;
-	
+
 	
 	@Id
 	@Column(name="id_usuario",unique = true, nullable = false)
@@ -38,7 +37,7 @@ public class Usuario implements Serializable{
 	public void setId_usuario(int id_usuario) {
 		this.id_usuario = id_usuario;
 	}
-	
+
 	@Column(name="username",length=30)
 	public String getUsername() {
 		return username;
@@ -47,7 +46,7 @@ public class Usuario implements Serializable{
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	
+
 	@Column(name="password",length=50)
 	public String getPassword() {
 		return password;
@@ -57,6 +56,7 @@ public class Usuario implements Serializable{
 		this.password = password;
 	}
 
+	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JsonIgnoreProperties(value={"usuario","hibernateLazyInitializer","handler"}, allowSetters=true)
 	@JoinColumn(name = "id_cliente")
@@ -67,6 +67,7 @@ public class Usuario implements Serializable{
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
-
+	
+	
 	
 }

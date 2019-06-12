@@ -12,7 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -27,8 +27,9 @@ public class Producto implements Serializable{
 	private int id_producto;
 	private String nombre;
 	private String descripcion;
-	private Double precio;
 	private String url_imagen;
+	private String precio;
+	
 	
 	private Categoria categoria;
 	private List<Detalle_Pedido> detalle_pedido;
@@ -36,6 +37,7 @@ public class Producto implements Serializable{
 	public Producto() {
 		this.detalle_pedido= new ArrayList<>();
 	}
+	
 
 	@Id
 	@Column(name="id_producto",unique = true, nullable = false)
@@ -44,56 +46,68 @@ public class Producto implements Serializable{
 		return id_producto;
 	}
 
+
 	public void setId_producto(int id_producto) {
 		this.id_producto = id_producto;
 	}
-	
+
+
 	@Column(name="nombre",length=50)
 	public String getNombre() {
 		return nombre;
 	}
 
+
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+
 
 	@Column(name="descripcion",length=200)
 	public String getDescripcion() {
 		return descripcion;
 	}
 
+
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
 
+
 	@Column(name="precio",nullable = false, scale = 2)
-	public Double getPrecio() {
-		return precio;
-	}
-
-	public void setPrecio(Double precio) {
-		this.precio = precio;
-	}
-
-	@Column(name="url_imagen",length=300)
 	public String getUrl_imagen() {
 		return url_imagen;
 	}
+
 
 	public void setUrl_imagen(String url_imagen) {
 		this.url_imagen = url_imagen;
 	}
 
-	@ManyToMany(fetch=FetchType.LAZY)
+
+	@Column(name="url_imagen",length=300)
+	public String getPrecio() {
+		return precio;
+	}
+
+
+	public void setPrecio(String precio) {
+		this.precio = precio;
+	}
+
+
+	@ManyToOne(fetch=FetchType.LAZY)
 	@JsonIgnoreProperties(value={"producto","hibernateLazyInitializer","handler"}, allowSetters=true)
 	@JoinColumn(name = "id_categoria")
 	public Categoria getCategoria() {
 		return categoria;
 	}
 
+
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
+
 
 	@JsonIgnoreProperties(value={"producto","hibernateLazyInitializer","handler"}, allowSetters=true)
 	@OneToMany(mappedBy = "producto", cascade = CascadeType.ALL)
@@ -101,10 +115,9 @@ public class Producto implements Serializable{
 		return detalle_pedido;
 	}
 
+
 	public void setDetalle_pedido(List<Detalle_Pedido> detalle_pedido) {
 		this.detalle_pedido = detalle_pedido;
 	}
-	
-	
-	
+
 }

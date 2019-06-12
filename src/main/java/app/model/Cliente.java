@@ -12,19 +12,20 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-public class Cliente implements Serializable{
-	
+@Table(name="cliente")
+public class Cliente implements Serializable {
+
 	private static final long serialVersionUID = 1L;
 	
 	private int id_cliente;
 	private String nombre;
 	private String apellido;
 	private String telefeno;
-	private String dni;
 	
 	private List<Usuario> usuario;
 	private List<Pedido> pedido;
@@ -63,22 +64,13 @@ public class Cliente implements Serializable{
 		this.apellido = apellido;
 	}
 
-	@Column(name="teelfon",length=12)
+	@Column(name="telefono",length=12)
 	public String getTelefeno() {
 		return telefeno;
 	}
 
 	public void setTelefeno(String telefeno) {
 		this.telefeno = telefeno;
-	}
-
-	@Column(name="nombre",length=8)
-	public String getDni() {
-		return dni;
-	}
-
-	public void setDni(String dni) {
-		this.dni = dni;
 	}
 
 	@JsonIgnoreProperties(value={"cliente","hibernateLazyInitializer","handler"}, allowSetters=true)
@@ -100,7 +92,8 @@ public class Cliente implements Serializable{
 	public void setPedido(List<Pedido> pedido) {
 		this.pedido = pedido;
 	}
-
 	
+	
+
 	
 }

@@ -11,10 +11,13 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+
 
 @Entity
 @Table(name="categoria")
@@ -24,13 +27,17 @@ public class Categoria implements Serializable{
 	
 	private int id_categoria;
 	private String nombre;
-	private String descripcion;
+	private int estado;
+	private int subcategoria;
 	
 	private List<Producto> producto;
+	
+	private List<Categoria> listar_categoria;
 
 	public Categoria() {
 		this.producto = new ArrayList<>();
 	}
+	
 	@Id
 	@Column(name="id_categoria",unique = true, nullable = false)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -50,14 +57,21 @@ public class Categoria implements Serializable{
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-
-	@Column(name="descripcion",length=200)
-	public String getDescripcion() {
-		return descripcion;
+	
+	@Column(name="estado")
+	public int getEstado() {
+		return estado;
 	}
-
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
+	public void setEstado(int estado) {
+		this.estado = estado;
+	}
+	
+	@Column(name="subcategoria")
+	public int getSubcategoria() {
+		return subcategoria;
+	}
+	public void setSubcategoria(int subcategoria) {
+		this.subcategoria = subcategoria;
 	}
 
 	@JsonIgnoreProperties(value={"categoria","hibernateLazyInitializer","handler"}, allowSetters=true)
@@ -70,6 +84,17 @@ public class Categoria implements Serializable{
 		this.producto = producto;
 	}
 
+	@OneToMany
+	@JoinColumn(name = "subcategoria", referencedColumnName = "id_categoria")
+	public List<Categoria> getListar_categoria() {
+		return listar_categoria;
+	}
 
+	public void setListar_categoria(List<Categoria> listar_categoria) {
+		this.listar_categoria = listar_categoria;
+	}
+	
+	
+	
 	
 }
