@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- navigation -->
+	<div th:fragment="navigation">
+		<div class="navigation">
+			<div class="container">
+				<nav class="navbar navbar-default">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header nav_2">
+						<button type="button"
+							class="navbar-toggle collapsed navbar-toggle1"
+							data-toggle="collapse" data-target="#bs-megadropdown-tabs">
+							<span class="sr-only">Toggle navigation</span> <span
+								class="icon-bar"></span> <span class="icon-bar"></span> <span
+								class="icon-bar"></span>
+						</button>
+					</div>
+					<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+						<ul class="nav navbar-nav">
+							<li><a th:href="@{/index}" class="act">Home</a></li>
+							<!-- Mega Menu -->
+							<th:block data-th-each="categoria : ${listar_categoria}">
+								<li class="dropdown"><a href="#" class="dropdown-toggle"
+									data-toggle="dropdown"><span th:text="${categoria.nombre}"><b
+											class="caret"></b></a> <th:block
+										data-th-if="${categoria.listar_categoria.size()} > 0">
+										<ul class="dropdown-menu multi-column columns-3">
+											<div class="row">
+												<th:block
+													data-th-each="subcategoria1 : ${categoria.listar_categoria}">
+													<div class="col-sm-3">
+														<ul class="multi-column-dropdown">
+															<h6>
+																<span th:text="${subcategoria1.nombre}"></span>
+															</h6>
+															<th:block
+																data-th-if="${subcategoria1.listar_categoria.size()} > 0">
+																<th:block
+																	data-th-each="subcategoria2 : ${subcategoria1.listar_categoria}">
+																	<li><a
+																		th:href="@{'/producto/categoria/' + ${subcategoria2.id_categoria}}"
+																		th:text="${subcategoria2.nombre}"> </a></li>
+																</th:block>
+														</ul>
+													</div>
+												</th:block>
+
+												<div class="col-sm-4">
+													<div class="w3ls_products_pos">
+														<h4>
+															30%<i>Off/-</i>
+														</h4>
+														<img th:src="@{/public/images/1.jpg}" alt=" "
+															class="img-responsive" />
+													</div>
+												</div>
+												<div class="clearfix"></div>
+											</div>
+
+
+										</ul>
+									</th:block></li>
+							</th:block>
+
+							<!--  <li><a href="about.html">About Us</a></li>-->
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</div>
+	</div>
+	<!-- //navigation -->
+</body>
+</html>

@@ -17,9 +17,12 @@ INSERT INTO categoria (id_categoria,nombre,estado,subcategoria) VALUES (14,'Sham
 INSERT INTO categoria (id_categoria,nombre,estado,subcategoria) VALUES (15,'Gel',1,7);
 INSERT INTO categoria (id_categoria,nombre,estado,subcategoria) VALUES (16,'Crema',1,8);
 
-INSERT INTO producto(id_producto,id_categoria,nombre,descripcion,url_imagen,precio) VALUES (1,10,'cocozhi','Cocozhi está formulado de la más fina cocoa con extracto de Ganoderma.','href','69.90');
-INSERT INTO producto(id_producto,id_categoria,nombre,descripcion,url_imagen,precio) VALUES (2,9,'vita cafe','Café Negro Lingzhi DXN no tiene azúcar o aditivos','href','89.90');
-INSERT INTO producto(id_producto,id_categoria,nombre,descripcion,url_imagen,precio) VALUES (3,9,'Lingzhi Coffee','Cingzhi Coffee 3 en 1 es todo lo que necesitas para una taza completa de suave','href','59.90');
+INSERT INTO producto(id_producto,id_categoria,nombre,descripcion,url_imagen,precio) VALUES (1,9,'cocozhi','Cocozhi está formulado de la más fina cocoa con extracto de Ganoderma.','30.jpg','69.90');
+INSERT INTO producto(id_producto,id_categoria,nombre,descripcion,url_imagen,precio) VALUES (2,9,'vita cafe','Café Negro Lingzhi DXN no tiene azúcar o aditivos','28.jpg','89.90');
+INSERT INTO producto(id_producto,id_categoria,nombre,descripcion,url_imagen,precio) VALUES (3,9,'Lingzhi Coffee','Cingzhi Coffee 3 en 1 es todo lo que necesitas para una taza completa de suave','26.jpg','59.90');
+INSERT INTO producto(id_producto,id_categoria,nombre,descripcion,url_imagen,precio) VALUES (4,9,'cocozhi','Cocozhi está formulado de la más fina cocoa con extracto de Ganoderma.','27.jpg','69.90');
+INSERT INTO producto(id_producto,id_categoria,nombre,descripcion,url_imagen,precio) VALUES (5,9,'vita cafe','Café Negro Lingzhi DXN no tiene azúcar o aditivos','29.jpg','89.90');
+
 
 INSERT INTO cliente (id_cliente,nombre,apellido,telefono) VALUES (1,'juan','perez gutierrez','949376537');
 INSERT INTO cliente (id_cliente,nombre,apellido,telefono) VALUES (2,'ruth','gonzalez illescas','988365245');
