@@ -29,6 +29,7 @@ private static final long serialVersionUID = 1L;
 	private String descripcion;
 	private String url_imagen;
 	private String precio;
+	private byte destacado;
 	
 	
 	private Categoria categoria;
@@ -63,7 +64,7 @@ private static final long serialVersionUID = 1L;
 	}
 
 
-	@Column(name="descripcion",length=200)
+	@Column(name="descripcion",length=600)
 	public String getDescripcion() {
 		return descripcion;
 	}
@@ -94,6 +95,18 @@ private static final long serialVersionUID = 1L;
 		this.precio = precio;
 	}
 
+	
+	@Column(name = "destacado", nullable = false)
+	public byte getDestacado() {
+		return destacado;
+	}
+
+
+	public void setDestacado(byte destacado) {
+		this.destacado = destacado;
+	}
+
+
 
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JsonIgnoreProperties(value={"producto","hibernateLazyInitializer","handler"}, allowSetters=true)
@@ -101,7 +114,6 @@ private static final long serialVersionUID = 1L;
 	public Categoria getCategoria() {
 		return categoria;
 	}
-
 
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;

@@ -19,6 +19,7 @@ function verCategoria(id_producto) {
 				$("#categoria_producto").text(producto.categoria.nombre);
 				
 				
+				
 			} else {
 				console.log("no existe el producto")
 			}
