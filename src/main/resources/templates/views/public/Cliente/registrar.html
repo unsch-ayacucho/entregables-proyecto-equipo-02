@@ -1,0 +1,155 @@
+<!DOCTYPE>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>DXN Store</title>
+<!-- for-mobile-apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="Electronic" />
+<meta charset="UTF-8">
+
+
+<!-- //for-mobile-apps -->
+<!-- Custom Theme files -->
+<link th:href="@{/public/css/bootstrap.css}" rel="stylesheet"
+	type="text/css" media="all" />
+<link th:href="@{/public/css/style.css}" rel="stylesheet"
+	type="text/css" media="all" />
+<link th:href="@{/public/css/fasthover.css}" rel="stylesheet"
+	type="text/css" media="all" />
+<link th:href="@{/public/css/popuo-box.css}" rel="stylesheet"
+	type="text/css" media="all" />
+<!-- //Custom Theme files -->
+
+<!-- font-awesome icons -->
+<link th:href="@{/public/css/font-awesome.css}" rel="stylesheet">
+<!-- //font-awesome icons -->
+
+<link rel="stylesheet" th:href="@{/public/css/jquery.countdown.css}" />
+<!-- countdown -->
+
+</head>
+<body>
+	<!-- header -->
+	<div th:replace="views/public/fragments/header :: header"></div>
+	<!-- //header -->
+
+	<!-- header -->
+	<div th:replace="views/public/fragments/navigation :: navigation"></div>
+	<!-- //header -->
+
+
+	<div id="all">
+
+		<div id="content">
+			<div class="container">
+				<br>
+				<div class="col-md-6">
+					<div class="box">
+						<h1>Nueva Cuenta</h1>
+
+						<p class="lead">No estás registrado aún?</p>
+						<p>Cuando te registres con nosotros, conocerás todos los
+							beneficios en nuestros servicios, descuentos y mucho más! Todo el
+							proceso no te llevará más de un minuto!</p>
+						<p class="text-muted">
+							Si tiene alguna pregunta, no dude en <a href="contact.html">Contactarnos</a>,
+							nuestro centro de servicio al cliente está trabajando para usted
+							24/7.
+						</p>
+
+						<hr>
+
+						<form th:action="@{/account/register}" th:object="${account}"
+							method="post">
+							<div class="form-group">
+								<label for="name">Name</label> <input type="text"
+									th:field="*{nombre}" class="form-control" >
+							</div>
+							<div class="form-group">
+								<label for="email">Email</label> <input type="text"
+									th:field="*{correo}" class="form-control" >
+							</div>
+							<div class="form-group">
+								<label for="password">Password</label> <input type="password"
+									th:field="*{password}" class="form-control" >
+							</div>
+							<div class="text-center">
+								<button type="submit" class="btn btn-primary">
+									<i class="fa fa-user-md"></i> Register
+								</button>
+							</div>
+						</form>
+						<span th:text="${message}"></span>
+					</div>
+				</div>
+
+				<div class="col-md-6">
+					<div class="box">
+						<h1>Login</h1>
+
+						<p class="text-muted">Por favor. Tu contraseña es importante!</p>
+						<p>Recuerda que siempre debe tener:</p>
+						<p>- Mínimo 8 caracteres.</p>
+						<p>- Una Mayúscula y una minúscula.</p>
+						<p>- Un número. No debe contener parte de tu nombre u
+							apellidos.</p>
+
+						<br>
+						<hr>
+						<form method="post" id="formLogin">
+							<div class="form-group">
+								<label for="email">Correo</label> <input type="text"
+									class="form-control" name="correo" id="email">
+							</div>
+							<div class="form-group">
+								<label for="password">Password</label> <input type="password"
+									class="form-control" name="password" id="password1">
+							</div>
+							<div class="text-center">
+								<button type="submit" class="btn btn-primary">
+									<i class="fa fa-sign-in"></i> Log in
+								</button>
+							</div>
+						</form>
+						<span th:text="${error}"></span>
+					</div>
+				</div>
+
+
+			</div>
+			<!-- /.container -->
+		</div>
+		<!-- /#content -->
+
+
+
+	</div>
+	<!-- /#all -->
+
+
+
+	<!-- footer -->
+	<div th:replace="views/public/fragments/footer :: footer"></div>
+	<!-- //footer -->
+
+
+	<script th:src="@{/public/js/jquery.min.js}" type="text/javascript"></script>
+	<script th:src="@{/public/js/bootstrap-3.1.1.min.js}"
+		type="text/javascript"></script>
+	<script th:src="@{/public/js/jquery.magnific-popup.js}"
+		type="text/javascript"></script>
+	<script th:src="@{/public/js/jquery.wmuSlider.js}"
+		type="text/javascript"></script>
+	<script th:src="@{/public/js/minicart.js}" type="text/javascript"></script>
+	<script th:src="@{/public/js/jquery.flexisel.js}"
+		type="text/javascript"></script>
+	<script th:src="@{/private/js/cliente/login.js}"
+		type="text/javascript"></script>
+
+
+
+
+
+</body>
+</html>

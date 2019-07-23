@@ -28,7 +28,8 @@ private static final long serialVersionUID = 1L;
 	private String nombre;
 	private String descripcion;
 	private String url_imagen;
-	private String precio;
+	private double descuento;
+	private double precio;
 	private byte destacado;
 	
 	
@@ -84,14 +85,24 @@ private static final long serialVersionUID = 1L;
 		this.url_imagen = url_imagen;
 	}
 
+	@Column(name="descuento",nullable = false, scale = 2)
+	public double getDescuento() {
+		return descuento;
+	}
+
+
+	public void setDescuento(double descuento) {
+		this.descuento = descuento;
+	}
+
 
 	@Column(name="precio",nullable = false, scale = 2)
-	public String getPrecio() {
+	public Double getPrecio() {
 		return precio;
 	}
 
 
-	public void setPrecio(String precio) {
+	public void setPrecio(Double precio) {
 		this.precio = precio;
 	}
 

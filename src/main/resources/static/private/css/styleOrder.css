@@ -1,0 +1,19 @@
+.Recepcionado {
+	background-color: #5CBDDD; 
+	color:white;
+}
+
+.Cancelado {
+	background-color: #D46163; 
+	color:white;
+}
+
+.badge-success {
+	background-color: #59B759; 
+	color:white;
+}
+
+.Espera {
+	background-color: #EFAB4F; 
+	color:white;
+}

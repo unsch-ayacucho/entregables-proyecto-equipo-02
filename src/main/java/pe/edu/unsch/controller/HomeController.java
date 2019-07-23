@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import pe.edu.unsch.model.Cliente;
 import pe.edu.unsch.model.Producto;
+import pe.edu.unsch.service.ClienteService;
 import pe.edu.unsch.service.ProductoService;
 
 @Controller
@@ -21,6 +23,9 @@ import pe.edu.unsch.service.ProductoService;
 public class HomeController {
 	@Autowired
 	ProductoService productoService;
+	
+	@Autowired
+	ClienteService clienteService;
 	
 	@GetMapping("index")
 	public String index(Model model) {
@@ -55,4 +60,7 @@ public class HomeController {
 		map.put("encontrado", encontrado);
 		return map;
 	}
+	
+	
+	
 }

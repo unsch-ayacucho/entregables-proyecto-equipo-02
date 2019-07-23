@@ -25,14 +25,14 @@ private static final long serialVersionUID = 1L;
 	
 	private int id_cliente;
 	private String nombre;
-	private String apellido;
-	private String telefeno;
+	private String correo;
+	private String password;
 	
-	private List<Usuario> usuario;
+
 	private List<Pedido> pedido;
+	
 
 	public Cliente() {
-		this.usuario = new ArrayList<>();
 		this.pedido = new ArrayList<>();
 	}
 	
@@ -56,33 +56,23 @@ private static final long serialVersionUID = 1L;
 		this.nombre = nombre;
 	}
 
-	@Column(name="apellido",length=80)
-	public String getApellido() {
-		return apellido;
+	@Column(name="correo",length=40)
+	public String getCorreo() {
+		return correo;
 	}
 
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
+	public void setCorreo(String correo) {
+		this.correo = correo;
 	}
 
-	@Column(name="telefono",length=12)
-	public String getTelefeno() {
-		return telefeno;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setTelefeno(String telefeno) {
-		this.telefeno = telefeno;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
-	@JsonIgnoreProperties(value={"cliente","hibernateLazyInitializer","handler"}, allowSetters=true)
-	@OneToMany(fetch=FetchType.LAZY, mappedBy = "cliente", cascade = CascadeType.ALL)
-	public List<Usuario> getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(List<Usuario> usuario) {
-		this.usuario = usuario;
-	}
 
 	@JsonIgnoreProperties(value={"cliente","hibernateLazyInitializer","handler"}, allowSetters=true)
 	@OneToMany(fetch=FetchType.LAZY, mappedBy = "cliente", cascade = CascadeType.ALL)

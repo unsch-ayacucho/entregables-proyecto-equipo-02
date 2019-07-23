@@ -2,6 +2,7 @@ package pe.edu.unsch.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -26,6 +27,9 @@ public class Pedido implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private int id_pedido;
+	private String estado_pedido;
+	private Date fecha;
+	//private byte estado;
 
 	private Cliente cliente;
 
@@ -45,6 +49,24 @@ public class Pedido implements Serializable {
 	public void setId_pedido(int id_pedido) {
 		this.id_pedido = id_pedido;
 	}
+
+
+	public String getEstado_pedido() {
+		return estado_pedido;
+	}
+
+	public void setEstado_pedido(String estado_pedido) {
+		this.estado_pedido = estado_pedido;
+	}
+
+	public Date getFecha() {
+		return fecha;
+	}
+
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
+
 
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JsonIgnoreProperties(value={"pedido","hibernateLazyInitializer","handler"}, allowSetters=true)

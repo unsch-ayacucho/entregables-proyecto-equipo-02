@@ -22,7 +22,7 @@ public class Detalle_Pedido implements Serializable {
 
 	private int id_detalle_pedido;
 	private int cantidad;
-	private String fecha;
+	private Double precio;
 
 	private Pedido pedido;
 	private Producto producto;
@@ -47,13 +47,12 @@ public class Detalle_Pedido implements Serializable {
 		this.cantidad = cantidad;
 	}
 
-	@Column(name = "fecha")
-	public String getFecha() {
-		return fecha;
+	public Double getPrecio() {
+		return precio;
 	}
 
-	public void setFecha(String fecha) {
-		this.fecha = fecha;
+	public void setPrecio(Double precio) {
+		this.precio = precio;
 	}
 
 	@JsonIgnoreProperties({"detalle_pedido", "hibernateLazyInitializer", "handler"})

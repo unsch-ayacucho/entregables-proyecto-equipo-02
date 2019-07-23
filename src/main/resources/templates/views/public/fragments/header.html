@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
@@ -10,13 +10,13 @@
 	<div class="header">
 		<div class="container">
 			<div class="w3l_login">
-				<a th:href="@{/index}" data-toggle="modal" data-target="#myModal88"><span
-					class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
+				<a th:href="@{/account/register}" ><span
+					class="glyphicon glyphicon-user" aria-hidden="true"></span></a><em th:text="${user_login}" id="email_login"></em>
 			</div>
 			<div class="w3l_logo">
 				<h1>
-					<a th:href="@{/index}">&nbsp; &nbsp;DXN Store<span>Tú
-							tienda.Tú Lugar.</span></a>
+					<a th:href="@{/index}">&nbsp; &nbsp;DXN Store<span>TÃº
+							tienda.TÃº Lugar.</span></a>
 				</h1>
 			</div>
 			<div class="search">
@@ -30,7 +30,7 @@
 					</form>
 				</div>
 			</div>
-			<div class="cart cart box_1">
+			<!-- <div class="cart cart box_1" id="carrito">
 				<form action="#" method="post" class="last">
 					<input type="hidden" name="cmd" value="_cart" /> <input
 						type="hidden" name="display" value="1" />
@@ -38,7 +38,14 @@
 						<i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
 					</button>
 				</form>
-			</div>
+			</div>-->
+		
+		
+			<button class="w3view-cart" data-toggle="modal" data-target="#myModal" type="submit" name="submit" value="">
+						<i class="fa fa-cart-arrow-down" aria-hidden="true" ></i>
+			</button>
+					
+
 		</div>
 	</div>
 </div>

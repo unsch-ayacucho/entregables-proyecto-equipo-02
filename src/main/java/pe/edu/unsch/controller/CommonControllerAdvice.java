@@ -17,5 +17,7 @@ public class CommonControllerAdvice {
 	public void addAtributes(Model model){
 		model.addAttribute("listar_categoria", categoriaService.findAll());
 	}
+	
+	
 
 }

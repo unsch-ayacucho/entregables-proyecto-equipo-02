@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,7 +32,7 @@ public class ProductoController {
 	ProductoService productoService;
 
 	@GetMapping("/categoria/{id}")
-	public String categoria(@PathVariable("id") Integer id, Model model) {
+	public String categoria(@PathVariable("id") Integer id, Model model, HttpSession session) {
 		Categoria categoria = categoriaService.find(id);
 
 		List<Producto> productos = new ArrayList<>();
@@ -46,6 +47,14 @@ public class ProductoController {
 		}
 
 
+		/*de aqui*/
+		String correo = "Sin sesión";
+		
+		if(session.getAttribute("user_login") != null) {
+			correo = (String) session.getAttribute("user_login");
+		}
+		model.addAttribute("user_login", correo);
+		/*hasta aca*/
 
 		model.addAttribute("productos", productos);
 		return "views/public/producto/categoria";
